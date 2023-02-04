@@ -1,0 +1,67 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+---
+
+<Layout title="About">
+	<main>
+		<h1>About</h1>
+
+		<img alt="briete" src="/logo.jpg" width={200} height={200} />
+		
+		<h2>Sato Naoya (briete)</h2>
+		<p>Software Engineer@Classmethod, Inc.</p>
+
+		<a href="https://www.facebook.com/brietens/"><i class="fa-brands fa-facebook"></i></a>
+		<a href="https://twitter.com/briete_ns"><i class="fa-brands fa-twitter"></i></a>
+		<a href="https://www.linkedin.com/in/briete/"><i class="fa-brands fa-linkedin"></i></a>
+		<a href="https://github.com/briete"><i class="fa-brands fa-github"></i></a>
+		<a href="https://dev.classmethod.jp/author/sato-naoya/"><i class="fa-solid fa-blog"></i></a>
+
+		<ul role="list" class="link-card-grid">
+			<Card
+				href="https://docs.astro.build/"
+				title="Skills"
+				body="Describes your skills as an engineer"
+			/>
+			<Card
+				href="https://astro.build/integrations/"
+				title="Blog"
+				body="I write personal blogs."
+			/>
+			<Card
+				href="https://astro.build/integrations/"
+				title="History"
+				body="Describes jobs and companies experienced"
+			/>
+		</ul>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 1.5rem;
+		max-width: 60ch;
+	}
+	h1 {
+		font-size: 3rem;
+		font-weight: 800;
+		margin: 0;
+	}
+	a {
+		color:antiquewhite;
+	}
+	img {
+		display: block;
+		margin: auto;
+		margin-top: 16px;
+		border-radius: 100px;
+	}
+	.link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 1rem;
+		padding: 0;
+	}
+</style>
