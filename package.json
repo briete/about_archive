@@ -8,7 +8,9 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "lint": "prettier src --check && eslint --cache src",
+    "lint:fix": "prettier src --write --check && eslint --fix src"
   },
   "dependencies": {
     "@astrojs/react": "^2.0.2",
@@ -20,5 +22,17 @@
     "zenn-content-css": "^0.1.137",
     "zenn-embed-elements": "^0.1.137",
     "zenn-markdown-html": "^0.1.137"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.50.0",
+    "@typescript-eslint/parser": "^5.50.0",
+    "eslint": "^8.33.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-astro": "^0.23.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^2.8.3",
+    "prettier-plugin-astro": "^0.8.0"
   }
 }

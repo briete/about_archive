@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import markdownToHtml from "zenn-markdown-html";
 
 let __markdownToHtml: Function;
