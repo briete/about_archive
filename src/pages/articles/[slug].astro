@@ -1,32 +1,31 @@
 ---
 import Layout from '../../layouts/BaseLayout.astro';
 import { Article } from '../../components/Article';
-
+import { zennMarkDownToHtml } from '../../utils/markdownToHtml';
 import { getCollection } from 'astro:content';
-import markdownToHtml from 'zenn-markdown-html';
 
 export async function getStaticPaths() {
     const articleEntries = await getCollection('article');
+
     return articleEntries.map(entry => {
         return { 
             params: { 
                 slug: entry.slug 
             }, 
-            props: { 
-                body: entry.body 
+            props: {
+                html: zennMarkDownToHtml(entry.body), 
             }
         };
     });
 }
 
-const { body } = Astro.props;
-const content = markdownToHtml(body);
+const { html } = Astro.props;
 ---
 
 <Layout title="briete">
     <main>
-        <Article html={content} />
-    </main>>
+        <Article html={html} />
+    </main>
 </Layout>
 
 <style>
