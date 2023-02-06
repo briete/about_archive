@@ -11,6 +11,14 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^2.0.6"
+    "@astrojs/react": "^2.0.2",
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "astro": "^2.0.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "zenn-content-css": "^0.1.137",
+    "zenn-embed-elements": "^0.1.137",
+    "zenn-markdown-html": "^0.1.137"
   }
 }

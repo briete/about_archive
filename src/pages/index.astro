@@ -1,9 +1,9 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from '../layouts/BaseLayout.astro';
 import Card from '../components/Card.astro';
 ---
 
-<Layout title="About">
+<Layout title="briete">
 	<main>
 		<h1>About</h1>
 
@@ -25,13 +25,13 @@ import Card from '../components/Card.astro';
 				body="Describes your skills as an engineer"
 			/>
 			<Card
-				href="/"
-				title="Blog"
+				href="/articles"
+				title="Articles"
 				body="personal blogs."
 			/>
 			<Card
-				href="/"
-				title="Career"
+				href="/careers"
+				title="Careers"
 				body="Describes jobs and companies experienced"
 			/>
 		</ul>

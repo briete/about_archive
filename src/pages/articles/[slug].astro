@@ -1,0 +1,38 @@
+---
+import Layout from '../../layouts/BaseLayout.astro';
+import { Article } from '../../components/Article';
+
+import { getCollection } from 'astro:content';
+import markdownToHtml from 'zenn-markdown-html';
+
+export async function getStaticPaths() {
+    const articleEntries = await getCollection('article');
+    return articleEntries.map(entry => {
+        return { 
+            params: { 
+                slug: entry.slug 
+            }, 
+            props: { 
+                body: entry.body 
+            }
+        };
+    });
+}
+
+const { body } = Astro.props;
+const content = markdownToHtml(body);
+---
+
+<Layout title="briete">
+    <main>
+        <Article html={content} />
+    </main>>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 1.5rem;
+		max-width: 70ch;
+	}
+</style>
