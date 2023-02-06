@@ -14,17 +14,23 @@ export async function getStaticPaths() {
         slug: entry.slug,
       },
       props: {
+        title: entry.data.title,
+        tags: entry.data.tags,
         html: zennMarkDownToHtml(entry.body),
       },
     };
   });
 }
 
-const { html } = Astro.props;
+const { html, title, tags } = Astro.props;
 ---
 
 <Layout title="briete">
   <main>
+    <h1>{title}</h1>
+    <div>
+      {tags.map((tag: string) => (<i>{tag}</i>))}
+    </div>
     <Article html={html} />
   </main>
 </Layout>
@@ -34,5 +40,20 @@ const { html } = Astro.props;
     margin: auto;
     padding: 1.5rem;
     max-width: 70ch;
+  }
+
+  div {
+    margin: 16px auto 16px;
+    font-size: 1.2rem;
+  }
+
+  i:not(:first-child) {
+    margin-left: 8px;
+  }
+
+  h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin: 0;
   }
 </style>
