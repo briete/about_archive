@@ -24,7 +24,8 @@ const { title } = Astro.props;
     <slot />
   </body>
 </html>
-<style is:global>
+
+<style is:global lang="scss">
   :root {
     --accent: 124, 58, 237;
     --accent-gradient: linear-gradient(
@@ -33,13 +34,94 @@ const { title } = Astro.props;
       #da62c4 30%,
       white 60%
     );
+    --c-base-background: #1c1c1f;
+    --c-base-background-lighter: #292c34;
+    --c-base-text: #fff;
+    --c-gray: rgba(214, 226, 243, 0.7);
+    --c-border: rgba(115, 125, 130, 0.4);
+    --font-family-base: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN',
+      'Hiragino Sans', Meiryo, sans-serif;
+    --font-family-alphabet: system-ui, -apple-system, 'Segoe UI', Arial,
+      sans-serif;
   }
+
+  $breakpoints: (
+    'xs': 'screen and (max-width: 400px)',
+    'sm': 'screen and (max-width: 576px)',
+    'md': 'screen and (max-width: 768px)',
+    'lg': 'screen and (max-width: 992px)',
+    'xl': 'screen and (max-width: 1200px)',
+  );
+
+  @mixin mq($size) {
+    @media #{map-get($breakpoints, $size)} {
+      @content;
+    }
+  }
+
   html {
-    background-color: #252525;
-    color: antiquewhite;
-    font-family: Inter, Helvetica Neue, Arial, Hiragino Kaku Gothic ProN,
-      Hiragino Sans, Meiryo, sans-serif;
     font-size: 16px;
+    box-sizing: border-box;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.6;
+    @include mq(sm) {
+      font-size: 15px;
+    }
+  }
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+
+  body {
     margin: 0;
+    color: var(--c-base-text);
+    background: var(--c-base-background);
+    word-break: break-word;
+    word-wrap: break-word;
+    font-family: var(--font-family-base);
+  }
+
+  img {
+    max-width: 100%;
+  }
+  p,
+  blockquote,
+  dl,
+  dd,
+  dt,
+  section {
+    margin: 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+  }
+
+  ul,
+  ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  main {
+    margin: auto;
+    padding: 1.5rem;
+    max-width: 60ch;
   }
 </style>

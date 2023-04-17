@@ -21,9 +21,8 @@ module.exports = {
       {
         groups: ["builtin", "external", "internal"],
         pathGroups: [
-          { pattern: "react", group: "external", position: "before" },
+          { group: "external", position: "before" },
         ],
-        pathGroupsExcludedImportTypes: ["react"],
         "newlines-between": "always",
         alphabetize: { order: "asc", caseInsensitive: true },
       },
@@ -31,14 +30,6 @@ module.exports = {
     "@typescript-eslint/triple-slash-reference": "off",
   },
   overrides: [
-    {
-      files: ["*.{jsx,tsx}"],
-      extends: [
-        "plugin:react/recommended",
-        "plugin:react/jsx-runtime",
-        "plugin:react-hooks/recommended",
-      ],
-    },
     {
       files: ["*.astro"],
       extends: ["plugin:astro/recommended"],

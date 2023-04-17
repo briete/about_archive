@@ -1,6 +1,5 @@
 {
-  "name": "portfolio",
-  "type": "module",
+  "name": "about",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -13,15 +12,10 @@
     "lint:fix": "prettier src --write --check && eslint --fix src"
   },
   "dependencies": {
-    "@astrojs/react": "^2.0.2",
-    "@types/react": "^18.0.27",
-    "@types/react-dom": "^18.0.10",
     "astro": "^2.0.6",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "zenn-content-css": "^0.1.137",
-    "zenn-embed-elements": "^0.1.137",
-    "zenn-markdown-html": "^0.1.137"
+    "dayjs": "^1.11.7",
+    "rss-parser": "^3.12.0",
+    "scss": "^0.2.4"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.50.0",
@@ -30,11 +24,8 @@
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-astro": "^0.23.0",
     "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-react": "^7.32.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
     "prettier": "^2.8.3",
     "prettier-plugin-astro": "^0.8.0",
-    "textlint": "^13.1.4",
-    "textlint-rule-preset-ja-technical-writing": "^7.0.0"
+    "sass": "^1.62.0"
   }
 }

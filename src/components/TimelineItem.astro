@@ -1,0 +1,100 @@
+---
+import {
+  formatDate,
+  getFaviconSrcFromHostname,
+  getHostFromURL,
+} from '../lib/helper';
+
+export interface Props {
+  item: any;
+}
+
+const { item } = Astro.props;
+const hostname = item.url ? getHostFromURL(item.url) : null;
+---
+
+<a href={item.url || '#'} class="itemLink">
+    <div class="itemIcon"></div>
+    <div class="itemMeta">
+        {hostname && (
+        <img
+            src={
+            hostname === 'zenn.dev'
+                ? '/zenn-logo-only.svg'
+                : getFaviconSrcFromHostname(hostname)
+            }
+            width={14}
+            height={14}
+            class="itemFavicon"
+        />
+        )}
+        <div>
+        {!!item.action?.length && (
+            <span class="itemAction">{item.action}</span>
+        )}
+        <time class="itemDate">{formatDate(item.date)}</time>
+        </div>
+    </div>
+    <h2 class="itemTitle">{item.title}</h2>
+</a>
+
+<style lang="scss">
+/*
+  catnose99/timeline (catnose99/timeline)
+  Copyright 2021 catnose99
+  https://opensource.org/licenses/mit-license.php
+*/
+.itemIcon {
+  position: absolute;
+  display: inline-flex;
+  left: -6px;
+  top: 4px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: solid 2px var(--c-border);
+  background: var(--c-base-background);
+}
+
+.itemLink {
+  display: block;
+  position: relative;
+  padding-left: 20px;
+  &:not(:first-child) {
+    margin-top: 2.2rem;
+  }
+}
+
+.itemTitle {
+  margin-top: 0.5rem;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+  &:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-color: var(--c-border);
+  }
+}
+
+.itemMeta {
+  display: flex;
+  align-items: center;
+  color: var(--c-gray);
+  font-size: 0.9rem;
+  line-height: 1.2;
+}
+
+.itemFavicon {
+  margin-right: 7px;
+  border-radius: 4px;
+}
+
+.itemDate {
+  &:before {
+    content: '/';
+    margin: 0 5px;
+    color: var(--c-border);
+  }
+}
+</style>

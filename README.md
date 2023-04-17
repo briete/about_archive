@@ -1,6 +1,6 @@
-# briete.me
-
-AstroとCloudflare Pagesを使った個人ブログです。
+# briete/about
+ 
+Astro v2 を使った個人サイトです。ホスティングには Cloudflare Pages を使っています。
 
 https://briete.me
 

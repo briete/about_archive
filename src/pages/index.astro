@@ -7,55 +7,39 @@ import Layout from "../layouts/BaseLayout.astro";
   <main>
     <h1>About</h1>
 
-    <img alt="logo" src="/logo.jpg" width={200} height={200} />
+    <img class="logo" alt="logo" src="/logo.jpg" width={200} height={200} />
 
     <h2>Sato Naoya (briete)</h2>
-    <p>Software Engineer@Classmethod, Inc.</p>
+    <p>Application Engineer@Classmethod, Inc.</p>
 
-    <a href="https://twitter.com/briete_ns"
-      ><i class="fa-brands fa-twitter"></i></a
-    >
-    <a href="https://www.facebook.com/brietens/"
-      ><i class="fa-brands fa-facebook"></i></a
-    >
-    <a href="https://www.linkedin.com/in/briete/"
-      ><i class="fa-brands fa-linkedin"></i></a
-    >
-    <a href="https://github.com/briete"><i class="fa-brands fa-github"></i></a>
-    <a href="https://dev.classmethod.jp/author/sato-naoya/"
-      ><i class="fa-solid fa-blog"></i></a
-    >
+    <a href="https://twitter.com/briete_ns"><i class="fa-brands fa-twitter fa-2x"></i></a>
+    <a href="https://www.facebook.com/brietens/"><i class="fa-brands fa-facebook fa-2x"></i></a>
+    <a href="https://www.linkedin.com/in/briete/"><i class="fa-brands fa-linkedin fa-2x"></i></a>
+    <a href="https://github.com/briete"><i class="fa-brands fa-github fa-2x"></i></a>
+    <a href="https://zenn.dev/briete"><img class="zenn" alt="zenn" src="/zenn-logo-only-white.svg" /></a>
+    <a href="https://dev.classmethod.jp/author/sato-naoya/"><i class="fa-solid fa-blog fa-2x"></i></a>
 
     <ul role="list" class="link-card-grid">
       <Card
-        href="/bio"
-        title="Bio"
-        body="describes my skills"
+        href="/skill"
+        title="Skill"
+        body="My skills"
       />
       <Card 
         href="/timeline" 
         title="Timeline" 
-        body="timeline" 
+        body="briete timeline" 
       />
     </ul>
   </main>
 </Layout>
 
 <style>
-  main {
-    margin: auto;
-    padding: 1.5rem;
-    max-width: 60ch;
+  .zenn {
+    width: 32px;
+    height: 32px;
   }
-  h1 {
-    font-size: 3rem;
-    font-weight: 800;
-    margin: 0;
-  }
-  a {
-    color: antiquewhite;
-  }
-  img {
+  .logo {
     display: block;
     margin: auto;
     margin-top: 16px;
